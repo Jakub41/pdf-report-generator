@@ -1,9 +1,5 @@
-require "pdf/report/generator/version"
-
-module Pdf
-  module Report
-    module Generator
-      # Your code goes here...
-    end
-  end
-end
+require 'fileutils'
+require 'rails'
+require 'pdf/report/generator/version'
+require  File.dirname(__FILE__) + '/generator/wicked_core'
+require  File.dirname(__FILE__) + '/generator/cdisc_changes_report'

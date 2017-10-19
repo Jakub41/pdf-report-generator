@@ -15,5 +15,6 @@
     <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v3.6.0, RVM: ruby-2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v3.6.0, RVM: ruby-2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.6.0, RVM: ruby-2.3.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="yard (v0.9.9, RVM: ruby-2.3.1) [gem]" level="application" />
   </component>
 </module>

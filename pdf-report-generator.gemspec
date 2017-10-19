@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A PDF Report Generator.}
   spec.description   = %q{This generator is based on the binaries of the wkhtmltopdf.org.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/Jakub41/pdf-report-generator"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -30,7 +30,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.has_rdoc = 'yard'
+  spec.metadata['yard.run'] = 'yri'
+
   spec.add_development_dependency "bundler", "~> 1.16.a"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+
+  spec.add_development_dependency "yard"
 end
