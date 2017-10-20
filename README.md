@@ -1,8 +1,12 @@
-# Pdf::Report::Generator
+# Pdf Report Generator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pdf/report/generator`. To experiment with that code, run `bin/console` for an interactive prompt.
+It is a Ruby Gem to transform [**CDISC**](https://www.cdisc.org/) HTML + CSS reports into PDFs using the command-line utility [wkhtmltopdf](https://wkhtmltopdf.org/). This Gem is a stand alone package just based on the binaries of the utility.  
 
-TODO: Delete this and the text above, and describe your gem
+## Prerequirements
+
+For be able to use the Gem succesfully you need to have installed on your machine the required binaries: [wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) 
+ 
+ The Gem is documentated using [Yard](https://yardoc.org/index.html) and for be able to see the generated docs be sure to have **Yard** installed in your application. 
 
 ## Installation
 
@@ -11,7 +15,11 @@ Add this line to your application's Gemfile:
 ```ruby
 gem 'pdf-report-generator'
 ```
+Or for local development you can set the path to the Gem:
 
+```ruby
+gem 'pdf-report-generator',  path: 'path/of/the/gem/pdf-report-generator' 
+```	 
 And then execute:
 
     $ bundle
@@ -19,10 +27,29 @@ And then execute:
 Or install it yourself as:
 
     $ gem install pdf-report-generator
-
+   
 ## Usage
 
-TODO: Write usage instructions here
+You can use CdiscChangesReport class to create template as like this:
+
+```ruby
+Reports::CdiscChangesReport.new.create(results, cls, current_user) render pdf: "cdisc_changes.pdf", page_size: current_user.paper_size, orientation:
+'Landscape' end
+end
+```
+Call body method from CdiscChangesReport to WickedCore and globle variable.
+
+## Description
+
+This Gem has the purpose to generate PDF reports from the **CDISC** HTML reports and making it in a short time as possible, even for large files.
+
+The tool has the capacity to receive dynamic content like from a dynamically generated HTML view, which fed it from a form in precedence and transform that to a PDF. It has a specific layout in the Gem itself to conditionally submit form updates.
+
+The Gem has the inbuilt capability to replace relative paths for assets to their absolute paths as it is required while rendering HTML as a string using **wkhtmltopdf** binary.
+
+It has the feature to just take template name in case of static HTML reports pdf generation. Just place files in public folder in case of rails rack app and on providing a template file name to Gem instance.
+
+No deadlock to single server processing. Reduced extra HTTP requests using resources within provided HTML and remove cross-domain URLs when rendering pdf requires wkhtmltopdf to hit your server again (for images, js, css)
 
 ## Development
 
